@@ -1,0 +1,14 @@
+<p>mars-rovers-photos works!</p>
+
+
+<button (click)="requestPhotos()">
+    Send hardcoded Request
+</button>
+
+<img mat-card-image [src]="firstImageUrl">
+
+
+
+<tr *ngFor="let mPhoto of (response$ | async)?.photos">
+    <img mat-card-image [src]="mPhoto.img_src">
+</tr>

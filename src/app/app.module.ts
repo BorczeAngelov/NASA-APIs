@@ -13,11 +13,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MarsRoversPhotosComponent } from './mars-rovers-photos/mars-rovers-photos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NasaApodComponent
+    NasaApodComponent,
+    MarsRoversPhotosComponent
   ],
   imports: [
     BrowserModule,
