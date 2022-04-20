@@ -1,1 +1,11 @@
 <h2>Astronomy Picture of the Day.</h2>
+
+<button (click)="sendRequest()">
+    Send Request
+</button>
+
+<p [textContent]="(response$ | async)"></p>
+
+<div>
+    <label>{{(response$ | async)?.url}}</label>
+</div>
