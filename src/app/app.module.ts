@@ -6,6 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NasaApodComponent } from './nasa-apod/nasa-apod.component';
 
+import { MatButtonModule } from '@angular/material/button'; 
+import { MatCardModule } from '@angular/material/card';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,6 +18,8 @@ import { NasaApodComponent } from './nasa-apod/nasa-apod.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

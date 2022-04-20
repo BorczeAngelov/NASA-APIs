@@ -1,27 +1,20 @@
-<h2>Astronomy Picture of the Day.</h2>
+<h2>Astronomy Picture of the Day</h2>
 
-<div>
-    <button (click)="sendRequest()">
-        Send Request
-    </button>
-</div>
+<mat-card class="example-card" style="max-width: 600px; max-height: 700px;">
+    <mat-card-header>
+        <mat-card-title>Title: {{(response$ | async)?.title}}</mat-card-title>
+        <mat-card-subtitle>Date: {{(response$ | async)?.date}}</mat-card-subtitle>
+    </mat-card-header>
 
-<div>
-    <h3>Title: {{(response$ | async)?.title}}</h3>
-</div>
+    <img mat-card-image [src]="(response$ | async)?.url"
+        alt="NASA Astronomy Picture of the Day {{(response$ | async)?.url}}">
+    <mat-card-content>
+        <p>{{(response$ | async)?.explanation}}</p>
+    </mat-card-content>
 
-<div>
-    <h3>Date: {{(response$ | async)?.date}}</h3>
-</div>
-
-<div>
-    <h3>Copyright: {{(response$ | async)?.copyright}}</h3>
-</div>
-
-<div>
-    <img [src]="(response$ | async)?.url" alt="NASA Astronomy Picture of the Day {{(response$ | async)?.url}}">
-</div>
-
-<div>
-    <h3>Explanation: {{(response$ | async)?.title}}</h3>
-</div>    
+    <mat-card-actions>
+        <button (click)="sendRequest()" mat-raised-button color="primary">
+            Send Request
+        </button>
+    </mat-card-actions>
+</mat-card>
