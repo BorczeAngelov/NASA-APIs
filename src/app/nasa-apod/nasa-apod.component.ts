@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, pipe } from 'rxjs';
 import { NasaApiService, ReturnObject } from '../nasa-api.service';
 
 @Component({
@@ -10,6 +10,8 @@ import { NasaApiService, ReturnObject } from '../nasa-api.service';
 export class NasaApodComponent implements OnInit {
 
   response$!: Observable<ReturnObject>;
+  myURL!: string;
+  imageToShow!: Observable<any>;
 
 
   constructor(public nasaApiService: NasaApiService) {
@@ -21,10 +23,19 @@ export class NasaApodComponent implements OnInit {
 
   sendRequest(): void {
     this.response$ = this.nasaApiService.getPictureOfDay();
-    console.log(this.response$);
-    console.log(JSON.stringify(this.response$));
+    this.response$.subscribe(
+      pipe((res: ReturnObject) => {
+        this.myURL = res.url;
 
+        console.log(this.myURL);
+      }))
+  }
 
-    // this.response$.subscribe(data => console.log(data))
+  displayImage(): void {
+    console.log(this.myURL);
+
+    this.nasaApiService.loadImage(this.myURL).subscribe(
+      res => this.imageToShow = res
+    )
   }
 }
