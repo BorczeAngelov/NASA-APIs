@@ -2,11 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ReturnObject } from './ReturnObject';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NasaApiService {  
+export class NasaApiService {
   api_key: string = "DEMO_KEY"; //Note: you can replace value with your own api_key
 
   constructor(private http: HttpClient) { }
@@ -25,7 +26,7 @@ export class NasaApiService {
         return this.createImageFromBlob(res);
       })
     );
-
+    
     return this.http.get<Blob>(imageUrl);
   }
 
@@ -39,14 +40,3 @@ export class NasaApiService {
 
 }
 
-export interface ReturnObject {
-  title: string;
-  date: string;
-  explanation: string;
-  hdurl: string;
-  url: string;
-
-  media_type: string;
-  service_version: string;
-  copyright: string;
-}
