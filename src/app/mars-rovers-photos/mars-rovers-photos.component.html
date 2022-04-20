@@ -9,13 +9,12 @@
     <span matSuffix>sol</span>
 </mat-form-field>
 
-<button (click)="requestPhotos(marsDate.value)" mat-raised-button color="primary"
-style="margin: 10px;">
+<button (click)="requestPhotos(marsDate.value)" mat-raised-button color="primary" style="margin: 10px;">
     Request Mars Photos
 </button>
 
 <tr *ngFor="let mPhoto of (response$ | async)?.photos">
-    <mat-card class="example-card">
+    <mat-card class="example-card" [matTooltip]="mPhoto.img_src">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>Title: {{mPhoto.camera.full_name}} ({{mPhoto.camera.name}})</mat-card-title>
