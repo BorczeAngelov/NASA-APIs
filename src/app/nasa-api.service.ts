@@ -11,8 +11,11 @@ import { ReturnObject } from './nasa-apod/DtoApod';
 export class NasaApiService {
 
   apodUrl: string = "https://api.nasa.gov/planetary/apod";
-  api_key: string = "DEMO_KEY"; //Note: you can replace value with your own api_key
-  
+  // api_key: string = "DEMO_KEY"; //Note: you can replace value with your own api_key
+  api_key: string = "GylTbFmuea3pDiZVRBJkzqCzLiC9VE2hYhHSegyc";
+
+  marsPhotosUrl: string = "https://mars-photos.herokuapp.com/api/v1"
+  roverName = "Perseverance";
 
   constructor(private http: HttpClient) { }
 
@@ -25,9 +28,8 @@ export class NasaApiService {
     return this.http.get<ReturnObject>(this.apodUrl + '?api_key=' + this.api_key + "&date=" + date);
   }
 
-  getMarsRoverPhotos(): Observable<DtoGetPhotos> {
-    var demoUrl = "https://mars-photos.herokuapp.com/api/v1/rovers/Perseverance/photos?sol=57";
-    return this.http.get<DtoGetPhotos>(demoUrl);
+  getMarsRoverPhotos(marsDay: string): Observable<DtoGetPhotos> {    
+    return this.http.get<DtoGetPhotos>(this.marsPhotosUrl + "/rovers/" + this.roverName + "/photos?sol=" + marsDay);
   }
 }
 

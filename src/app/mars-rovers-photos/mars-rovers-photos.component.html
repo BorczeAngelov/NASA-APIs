@@ -1,14 +1,32 @@
-<p>mars-rovers-photos works!</p>
+<h2>NASA Mars Photo API</h2>
 
+<h4>API URL: {{nasaApiService.marsPhotosUrl}}</h4>
+<h4>Rover Name: {{nasaApiService.roverName}}</h4>
 
-<button (click)="requestPhotos()">
-    Send hardcoded Request
+<mat-form-field appearance="fill">
+    <mat-label>Day on Mars since landing</mat-label>
+    <input matInput type="number" placeholder="Ex. 1" min="1" value="1" #marsDate>
+    <span matSuffix>sol</span>
+</mat-form-field>
+
+<button (click)="requestPhotos(marsDate.value)" mat-raised-button color="primary"
+style="margin: 10px;">
+    Request Mars Photos
 </button>
 
-<img mat-card-image [src]="firstImageUrl">
-
-
-
 <tr *ngFor="let mPhoto of (response$ | async)?.photos">
-    <img mat-card-image [src]="mPhoto.img_src">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Title: {{mPhoto.camera.full_name}} ({{mPhoto.camera.name}})</mat-card-title>
+            <mat-card-subtitle>Photo Id: {{mPhoto.id}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <img mat-card-image [src]="mPhoto.img_src">
+
+        <mat-card-footer style="padding-left: 15px;">
+            <mat-card-subtitle>Mars Landing Date (Sol): {{mPhoto.sol}}</mat-card-subtitle>
+            <mat-card-subtitle>Earth Date: {{mPhoto.earth_date}}</mat-card-subtitle>
+        </mat-card-footer>
+    </mat-card>
 </tr>

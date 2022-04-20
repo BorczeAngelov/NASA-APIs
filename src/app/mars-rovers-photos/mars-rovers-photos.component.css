@@ -1,0 +1,9 @@
+.example-card {
+    max-width: 600px;
+    margin: 15px;
+}
+
+.example-header-image {
+    background-image: url('https://mars-photos.herokuapp.com/explore/images/Perseverance_rover.jpg');
+    background-size: cover;
+  }

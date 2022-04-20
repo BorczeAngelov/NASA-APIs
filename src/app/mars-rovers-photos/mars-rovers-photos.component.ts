@@ -19,9 +19,11 @@ export class MarsRoversPhotosComponent implements OnInit {
   }
 
 
-  requestPhotos(): void {
+  requestPhotos(marsDate: string): void {
 
-    this.response$ = this.nasaApiService.getMarsRoverPhotos();
+    console.log(marsDate);
+    
+    this.response$ = this.nasaApiService.getMarsRoverPhotos(marsDate);
 
     this.response$.subscribe(
       data => {
