@@ -1,0 +1,4 @@
+.example-header-image {
+    background-image: url('https://api.nasa.gov/assets/img/favicons/favicon-192.png');
+    background-size: cover;
+  }

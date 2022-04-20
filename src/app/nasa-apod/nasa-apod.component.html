@@ -1,9 +1,11 @@
 <h2>Astronomy Picture of the Day</h2>
 
-<mat-card class="example-card" style="max-width: 600px; max-height: 700px;">
+<mat-card class="example-card" style="max-width: 600px;">
     <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>Title: {{(response$ | async)?.title}}</mat-card-title>
         <mat-card-subtitle>Date: {{(response$ | async)?.date}}</mat-card-subtitle>
+        <mat-card-subtitle>API Url: {{nasaApiService.apodUrl}}</mat-card-subtitle>
     </mat-card-header>
 
     <img mat-card-image [src]="(response$ | async)?.url"
@@ -13,8 +15,12 @@
     </mat-card-content>
 
     <mat-card-actions>
-        <button (click)="sendRequest()" mat-raised-button color="primary">
-            Send Request
-        </button>
+        <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" #dateInput (dateChange)="dateChanged(dateInput.value)">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
     </mat-card-actions>
 </mat-card>
