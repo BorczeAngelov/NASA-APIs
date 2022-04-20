@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, pipe } from 'rxjs';
 import { NasaApiService } from '../nasa-api.service';
-import { ReturnObject } from "../ReturnObject";
+import { ReturnObject } from "./DtoApod";
 
 @Component({
   selector: 'app-nasa-apod',
