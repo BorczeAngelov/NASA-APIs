@@ -11,8 +11,7 @@ import { ReturnObject } from "../ReturnObject";
 export class NasaApodComponent implements OnInit {
 
   response$!: Observable<ReturnObject>;
-  myURL!: string;
-  imageToShow!: Observable<any>;
+  imageToShow!: string;
 
 
   constructor(public nasaApiService: NasaApiService) {
@@ -26,17 +25,9 @@ export class NasaApodComponent implements OnInit {
     this.response$ = this.nasaApiService.getPictureOfDay();
     this.response$.subscribe(
       pipe((res: ReturnObject) => {
-        this.myURL = res.url;
+        this.imageToShow = res.url;
 
-        console.log(this.myURL);
+        console.log(this.imageToShow);
       }))
-  }
-
-  displayImage(): void {
-    console.log(this.myURL);
-
-    this.nasaApiService.loadImage(this.myURL).subscribe(
-      res => this.imageToShow = res
-    )
   }
 }

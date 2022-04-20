@@ -4,18 +4,4 @@
     Send Request
 </button>
 
-<p [textContent]="(response$ | async)"></p>
-
-<div>
-    <label>{{(response$ | async)?.url}}</label>
-</div>
-
-
-
-
-<button (click)="displayImage()">
-    Load Image
-</button>
-
-
-<img [src]="imageToShow" alt="Image title">
+<img [src]="(response$ | async)?.url" alt="NASA Astronomy Picture of the Day {{(response$ | async)?.url}}">
