@@ -1,7 +1,27 @@
 <h2>Astronomy Picture of the Day.</h2>
 
-<button (click)="sendRequest()">
-    Send Request
-</button>
+<div>
+    <button (click)="sendRequest()">
+        Send Request
+    </button>
+</div>
 
-<img [src]="(response$ | async)?.url" alt="NASA Astronomy Picture of the Day {{(response$ | async)?.url}}">
+<div>
+    <h3>Title: {{(response$ | async)?.title}}</h3>
+</div>
+
+<div>
+    <h3>Date: {{(response$ | async)?.date}}</h3>
+</div>
+
+<div>
+    <h3>Copyright: {{(response$ | async)?.copyright}}</h3>
+</div>
+
+<div>
+    <img [src]="(response$ | async)?.url" alt="NASA Astronomy Picture of the Day {{(response$ | async)?.url}}">
+</div>
+
+<div>
+    <h3>Explanation: {{(response$ | async)?.title}}</h3>
+</div>    
