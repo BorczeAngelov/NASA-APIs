@@ -14,6 +14,7 @@ export class NasaApodComponent implements OnInit {
   response$!: Observable<ReturnObject>;
   imageToShow!: string;
 
+  maxDate: Date = new Date();
 
   constructor(public nasaApiService: NasaApiService) {
   }
@@ -25,7 +26,7 @@ export class NasaApodComponent implements OnInit {
   dateChanged(date: string): void {
     var newDate = formatDate(date, 'yyyy-MM-dd', 'en');
 
-    this.response$ = this.nasaApiService.getPictureOfDate(newDate);    
+    this.response$ = this.nasaApiService.getPictureOfDate(newDate);
     this.response$.subscribe(
       pipe((res: ReturnObject) => {
         this.imageToShow = res.url;
