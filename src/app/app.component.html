@@ -1,11 +1,23 @@
-<h1>Angular & NASA API Demos</h1>
+<mat-tab-group dynamicHeight [selectedIndex]="selectedTabIndex.value"
+  (selectedIndexChange)="selectedTabIndex.setValue($event)" backgroundColor="primary" color="warn">
+  <mat-tab label="Home">
+    <h1>Angular & NASA API Demos</h1>
 
-<mat-tab-group dynamicHeight backgroundColor="primary" color="accent">
-  <mat-tab label="Picture of Day">
-    <app-nasa-apod></app-nasa-apod>
+    <!-- TODO: add About description -->
+    <div>
+      <button (click)="onCheckDemo(1)" mat-stroked-button color="primary">Check Demo 1</button>
+    </div>
+
+    <div>
+      <button (click)="onCheckDemo(2)" mat-stroked-button color="primary">Check Demo 2</button>
+    </div>
   </mat-tab>
 
-  <mat-tab label="Mars Rovers Photos">
+  <mat-tab label="NASA Mars Photos (Demo 1)">
     <app-mars-rovers-photos></app-mars-rovers-photos>
+  </mat-tab>
+
+  <mat-tab label="NASA Picture of Day (Demo 2)">
+    <app-nasa-apod></app-nasa-apod>
   </mat-tab>
 </mat-tab-group>
