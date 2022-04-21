@@ -16,6 +16,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatNativeDateModule,
     MatInputModule,
     MatTooltipModule,
-    MatTabsModule
+    MatTabsModule,
+    MatGridListModule,
+    MatListModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

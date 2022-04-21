@@ -27,7 +27,12 @@ export class NasaApiService {
     return this.http.get<ReturnObject>(this.apodUrl + '?api_key=' + this.api_key + "&date=" + date);
   }
 
-  getMarsRoverPhotos(marsDay: string): Observable<DtoGetPhotos> {
+  getMarsRoverPhotos(earthDate: string): Observable<DtoGetPhotos> {
+    return this.http.get<DtoGetPhotos>(this.marsPhotosUrl + "/rovers/" + this.roverName + "/photos?" +
+      'api_key=' + this.api_key + "&earth_date=" + earthDate);
+  }
+
+  getMarsRoverPhotosEx(marsDay: string): Observable<DtoGetPhotos> {
     return this.http.get<DtoGetPhotos>(this.marsPhotosUrl + "/rovers/" + this.roverName + "/photos?" +
       'api_key=' + this.api_key + "&sol=" + marsDay);
   }

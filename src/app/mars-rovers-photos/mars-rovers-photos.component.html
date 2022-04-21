@@ -1,22 +1,47 @@
-<h2>NASA Mars Photo API</h2>
+<h2>NASA Mars Photos</h2>
 
-<h4>API URL: {{nasaApiService.marsPhotosUrl}}</h4>
-<h4>Rover Name: {{nasaApiService.roverName}}</h4>
+<table style="margin-top: -50px;">
+    <td style="width: 400px;">
+        <div>
+            <p>API URL: {{nasaApiService.marsPhotosUrl}}</p>
+        </div>
+        <div>
+            <p>Rover Name: {{nasaApiService.roverName}}</p>
+        </div>
+        <div>
+            <img mat-card-image src='https://mars-photos.herokuapp.com/explore/images/Perseverance_rover.jpg'
+                matTooltip='https://mars-photos.herokuapp.com/explore/images/Perseverance_rover.jpg'
+                style="padding-right: 20px;">
+        </div>
+    </td>
 
-<div>
-    <mat-form-field appearance="fill">
-        <mat-label>Day on Mars since landing</mat-label>
-        <input matInput type="number" placeholder="Ex. 1" min="1" value="1" #marsDate>
-        <span matSuffix>sol</span>
-    </mat-form-field>
+    <td>
+        <mat-list>
+            <mat-list>
+                <mat-calendar #dateInput [(selected)]="selectedDate" (selectedChange)="dateChanged()"
+                    [minDate]="minDate" [maxDate]="maxDate" style="width: 300px;"></mat-calendar>
+            </mat-list>
+            
+            <mat-list-item>
+                <button mat-raised-button color="warn" (click)="dayOnLanding()">
+                    Photos on day of Landing {{dateOnLanding}}
+                </button>
+            </mat-list-item>
+            
+            <mat-list style="padding-left: 20px;">
+                <mat-card-subtitle>Results Images Width {{imagesWidth}}px</mat-card-subtitle>
+                <mat-slider #widthSlider style="width: 250px;" min="200" max="800" tickInterval="100"
+                    (valueChange)="widthChanged(widthSlider.value)">
+                </mat-slider>
+            </mat-list>            
+        </mat-list>
+    </td>
+</table>
 
-    <button (click)="requestPhotos(marsDate.value)" mat-raised-button color="primary" style="margin: 10px;">
-        Request Mars Photos
-    </button>
-</div>
+<mat-divider></mat-divider>
 
 <tr *ngFor="let mPhoto of (response$ | async)?.photos">
-    <mat-card class="example-card" [matTooltip]="mPhoto.img_src">
+    <mat-card class="example-card" [style.width.px]="imagesWidth" [matTooltip]="mPhoto.img_src">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>Title: {{mPhoto.camera.full_name}} ({{mPhoto.camera.name}})</mat-card-title>
