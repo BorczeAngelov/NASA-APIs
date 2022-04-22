@@ -1,8 +1,8 @@
 # NASA Open APIs Demo
 
-Official NASA API website: https://api.nasa.gov/
-
 Demo deployed on GitHub-Pages: https://borczeangelov.github.io/NASA-APIs/
+
+Official NASA Open API website: https://api.nasa.gov/
 
 Useful link: https://github.com/chrisccerami/mars-photo-api
 
