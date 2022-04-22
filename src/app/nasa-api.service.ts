@@ -9,8 +9,7 @@ import { ReturnObject } from './nasa-apod/DtoApod';
 })
 export class NasaApiService {
   apodUrl: string = "https://api.nasa.gov/planetary/apod";
-  // api_key: string = "DEMO_KEY"; //Note: you can replace value with your own api_key
-  api_key: string = "GylTbFmuea3pDiZVRBJkzqCzLiC9VE2hYhHSegyc";
+  api_key: string = "DEMO_KEY"; //Note: you can replace value with your own api_key  
 
   // marsPhotosUrl: string = "https://mars-photos.herokuapp.com/api/v1" //no need for api_key
   marsPhotosUrl: string = "https://api.nasa.gov/mars-photos/api/v1"
