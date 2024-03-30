@@ -1,9 +1,8 @@
-import { DatePipe, formatDate } from '@angular/common';
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NasaApiService } from '../nasa-api.service';
 import { DtoGetPhotos } from './DataModel/DtoGetPhotos';
-import { MarsPhoto } from './DataModel/MarsPhoto';
 
 @Component({
   selector: 'app-mars-rovers-photos',
@@ -22,6 +21,7 @@ export class MarsRoversPhotosComponent implements OnInit {
   imagesWidth?: number = 200;
 
   constructor(public nasaApiService: NasaApiService) {
+      
     const helper = new Date();
 
     this.minDate = new Date(this.dateOnLanding);
@@ -32,8 +32,10 @@ export class MarsRoversPhotosComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  widthChanged(width: number): void {
+  widthChanged(width: number){
     this.imagesWidth = width;
+    console.log(width)
+    return `${width}`;
   }
 
   dayOnLanding(): void {

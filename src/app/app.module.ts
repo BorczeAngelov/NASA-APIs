@@ -8,17 +8,18 @@ import { AppComponent } from './app.component';
 import { NasaApodComponent } from './nasa-apod/nasa-apod.component';
 import { MarsRoversPhotosComponent } from './mars-rovers-photos/mars-rovers-photos.component';
 
+// Angular Material Modules
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatInputModule } from '@angular/material/input';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatTabsModule } from '@angular/material/tabs';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
-import { MatSliderModule } from '@angular/material/slider';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
+import { MatSliderModule } from '@angular/material/slider'; 
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -32,17 +33,18 @@ import { MatSliderModule } from '@angular/material/slider';
     AppRoutingModule,
     HttpClientModule,
 
+    // Material Modules
     MatButtonModule,
     MatCardModule,
     MatDatepickerModule,
     MatFormFieldModule,
-    MatNativeDateModule,
-    MatInputModule,
-    MatTooltipModule,
-    MatTabsModule,
     MatGridListModule,
+    MatInputModule,
     MatListModule,
-    MatSliderModule
+    MatNativeDateModule,
+    MatSliderModule,
+    MatTabsModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

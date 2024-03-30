@@ -29,11 +29,11 @@
             </mat-list-item>
             
             <mat-list style="padding-left: 20px;">
-                <mat-card-subtitle>Results Images Width {{imagesWidth}}px</mat-card-subtitle>
-                <mat-slider #widthSlider style="width: 250px;" min="200" max="800" tickInterval="100"
-                    (valueChange)="widthChanged(widthSlider.value)">
-                </mat-slider>
-            </mat-list>            
+                <mat-card-subtitle>Results Images Width {{slider.value}}px</mat-card-subtitle>                
+                <mat-slider style="width: 250px;" min="200" max="800" step="100" showTickMarks discrete [displayWith]="widthChanged">
+                    <input matSliderThumb #slider>
+                  </mat-slider>
+            </mat-list>      
         </mat-list>
     </td>
 </table>
@@ -41,7 +41,7 @@
 <mat-divider></mat-divider>
 
 <tr *ngFor="let mPhoto of (response$ | async)?.photos">
-    <mat-card class="example-card" [style.width.px]="imagesWidth" [matTooltip]="mPhoto.img_src">
+    <mat-card class="example-card" [style.width.px]="slider.value" [matTooltip]="mPhoto.img_src">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>Title: {{mPhoto.camera.full_name}} ({{mPhoto.camera.name}})</mat-card-title>

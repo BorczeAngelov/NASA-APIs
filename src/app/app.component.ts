@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import { FormControl } from '@angular/forms';
 })
 export class AppComponent {
 
-  selectedTabIndex = new FormControl(0);
+  selectedTabIndex = new UntypedFormControl(0);
 
 
 
